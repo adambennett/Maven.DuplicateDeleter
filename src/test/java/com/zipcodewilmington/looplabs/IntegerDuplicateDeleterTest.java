@@ -81,8 +81,6 @@ public class IntegerDuplicateDeleterTest {
 
 
 
-
-
     @Test
     public void testRemoveDuplicates0() {
         Integer[] array = new Integer[]{0, 0, 0, 1, 1, 2, 3, 3, 3, 4, 4, 5, 5, 5, 5};
@@ -132,6 +130,14 @@ public class IntegerDuplicateDeleterTest {
         TestUtils.assertArrayEquality(expected, actual);
     }
 
+    @Test
+    public void testRemoveDuplicates5() {
+        Integer[] array = new Integer[]{0, 0, 0, 1, 1, 200, 2, 3, 3, 3, 3000, 4, 4, 5, 5, 5, 5, 6000};
+        DuplicateDeleter<Integer> deleter = new IntegerDuplicateDeleter(array);
+        Integer[] expected = new Integer[]{0,0,0,1,1,200,2,3,3,3,3000,4,4,6000};
+        Integer[] actual = deleter.removeDuplicates(4);
+        TestUtils.assertArrayEquality(expected, actual);
+    }
 
 
 

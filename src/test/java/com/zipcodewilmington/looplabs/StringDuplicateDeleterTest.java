@@ -62,6 +62,15 @@ public class StringDuplicateDeleterTest {
         TestUtils.assertArrayEquality(expected, actual);
     }
 
+    @Test
+    public void testRemoveDuplicatesExactly6() {
+        String[] input = new String[]{"aa", "aa", "ab", "aa", "aa", "aa", "ba", "bec", "ba", "ba", "ba", "bb", "", "bb", "bb", "bb", "bb", "aaaa", "a5a", "lop", "ll", "bc", "bb", "aab", "aab", "a5a", "lop", "55", "a", "a", "bb", "ba"};
+        DuplicateDeleter<String> deleter = new StringDuplicateDeleter(input);
+        String[] expected = new String[]{"ab", "bec", "bb", "", "bb", "bb", "bb", "bb", "aaaa", "a5a", "lop", "ll", "bc", "bb", "aab", "aab", "a5a", "lop", "55", "a", "a", "bb"};
+        String[] actual = deleter.removeDuplicatesExactly(5);
+        TestUtils.assertArrayEquality(expected, actual);
+    }
+
 
 
 
